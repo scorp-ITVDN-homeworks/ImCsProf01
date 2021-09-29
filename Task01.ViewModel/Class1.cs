@@ -2,7 +2,15 @@
 
 namespace Task01.ViewModel
 {
-    public class Class1
+    using Model;
+
+    public class MonthesViewModel
     {
+        IMonthCollection monthCollection;
+
+        public MonthesViewModel()
+        {
+            monthCollection = new MonthCollectionProvider();
+        }
     }
 }

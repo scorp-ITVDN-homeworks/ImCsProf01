@@ -23,6 +23,7 @@ namespace Task01
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel.MonthesViewModel();
         }
     }
 }
