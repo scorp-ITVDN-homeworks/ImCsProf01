@@ -1,8 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net5.0</TargetFramework>
+	  <TargetFramework>net5.0-windows</TargetFramework>
 	  <Platforms>x64</Platforms>
+	  <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MvvmAdds\MvvmAdds.csproj" />
+  </ItemGroup>
 
 </Project>

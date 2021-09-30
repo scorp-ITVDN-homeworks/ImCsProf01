@@ -28,6 +28,11 @@ namespace Task01.ConsoleTest
                 Console.Write(monthCollection.GetMonthDays()[i]);
             }
             Console.ReadKey();
+
+            int monthNumber = monthCollection.GetMonthNumber(monthCollection.GetMonthByName("June"));
+            Console.WriteLine(monthNumber.ToString());
+
+            Console.ReadKey();
         }
     }
 }

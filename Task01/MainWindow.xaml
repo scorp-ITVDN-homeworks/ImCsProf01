@@ -5,12 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="400"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="120"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <ListView
+            ItemsSource="{Binding MonthNames, Mode=OneWay}"
+            SelectedItem="{Binding SelectedMonthName, Mode=OneWayToSource}"
+            >
+            
+        </ListView>
+
+        <StackPanel
+            Grid.Column="1">
+            <TextBlock Text="Number of days in Month:"/>
+            <TextBlock Text="{Binding TotalDays, Mode=TwoWay}" FontSize="100" HorizontalAlignment="Center"/>
+            <TextBlock Text="Month number:"/>
+            <TextBlock Text="{Binding MonthOrderNumber, Mode=TwoWay}" FontSize="100" HorizontalAlignment="Center"/>
+        </StackPanel>
 
     </Grid>
 </Window>

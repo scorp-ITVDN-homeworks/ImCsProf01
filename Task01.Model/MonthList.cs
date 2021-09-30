@@ -58,6 +58,8 @@ namespace Task01.Model
 
         public IEnumerator GetEnumerator()
         {
+            //!!!!!!!
+            Reset();
             return this;
         }
 
@@ -132,6 +134,8 @@ namespace Task01.Model
     { 
         public MonthList.Month SelectedMonth { get; }
 
+        public int MonthesInYear { get; }
+
         public bool HasAlterDaysNumber();
 
         public bool HasAlterDaysNumber(object requestedMonth);
@@ -177,7 +181,15 @@ namespace Task01.Model
         {
             get;
             private set;
-        }     
+        }  
+        
+        public int MonthesInYear
+        {
+            get
+            {
+                return monthList.Count;
+            }
+        }
         
         public bool HasAlterDaysNumber()
         {
@@ -241,12 +253,14 @@ namespace Task01.Model
 
         public int GetMonthNumber(object requestedMonth)
         {
-            int number = 1;
-            if (requestedMonth is MonthList.Month)
-            {
-                number = ((MonthList.Month)requestedMonth).OrderNumber;
-            }
-            return number;
+            //int number = 1;
+            //if (requestedMonth is MonthList.Month)
+            ////if (requestedMonth.GetType() == typeof(MonthList.Month))
+            //{
+            //    number = ((MonthList.Month)requestedMonth).OrderNumber;
+            //}
+            //return number;
+            return ((MonthList.Month)requestedMonth).OrderNumber;
         }        
 
         public int[] GetDaysInMonth()

@@ -6,9 +6,8 @@
 	  <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MvvmAdds\MvvmAdds.csproj" />
-    <ProjectReference Include="..\Task01.Model\Task01.Model.csproj" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
 
 </Project>
