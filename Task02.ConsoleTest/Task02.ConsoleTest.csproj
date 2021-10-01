@@ -6,4 +6,8 @@
 	<Platforms>x64</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Task02.Model\Task02.Model.csproj" />
+  </ItemGroup>
+
 </Project>

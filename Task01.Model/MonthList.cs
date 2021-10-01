@@ -130,6 +130,10 @@ namespace Task01.Model
         }
     }
 
+    /* интерфейс для передачи во viewmodel
+     * 
+     * 
+     */
     public interface IMonthCollection
     { 
         public MonthList.Month SelectedMonth { get; }
@@ -167,6 +171,8 @@ namespace Task01.Model
         public IList<MonthList.Month> GetMonthByLength(int monthLength);
     }
 
+    /* реализация инерфейса для передачи во viewmodel
+     */ 
     public class MonthCollectionProvider : IMonthCollection
     {
         private MonthList monthList;
