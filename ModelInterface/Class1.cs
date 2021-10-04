@@ -4,19 +4,21 @@ namespace ModelInterface
 {
     public interface IOfficeQueue
     {
-        public CitizenProvider[] GetQueue();
-        public CitizenProvider ServeCitizen();
-
-        public CitizenProvider GetCitizen(int passportNumber);
-        public CitizenProvider[] GetCitizen(string FirstName, string LastName);
-        public CitizenProvider GetByQueueNumber(int queue);
-        public CitizenProvider GetFirstCitizen();
-        public CitizenProvider GetLastCitizen();
+        public object[] GetQueue();
+        public object ServeCitizen();
+               
+        public object GetCitizen(int passportNumber);
+        public object[] GetCitizen(string FirstName, string LastName);
+        public object GetByQueueNumber(int queue);
+        public object GetFirstCitizen();
+        public object GetLastCitizen();
 
         public int GetQueueNumber(object citizen);
 
-        public void AddCitizenAtQueue(CitizenProvider citizen);
+        public void AddCitizenAtQueue(object citizen);
         public bool NotEmpty();
+
+        public CitizenProvider SerializeToCitizenProvider(object citizen);
     }
 
     public class CitizenProvider

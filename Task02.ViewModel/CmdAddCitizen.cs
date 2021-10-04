@@ -31,13 +31,27 @@ namespace Task02.ViewModel
             MessageBox.Show("Something happens");
             CitizenProvider.Status status = (CitizenProvider.Status)Enum.Parse(typeof(CitizenProvider.Status), InputCitizenStatus);
             CitizenProvider citizen = new CitizenProvider(InputPassportNumber, status) { FirstName = InputFirstName, LastName = InputSecondName };
-            //medQueue.AddCitizenAtQueue(citizen);
+            medQueue.AddCitizenAtQueue(citizen);
+            SetQueue();
 
-            CitizensQueue.Add(citizen);
+            InputPassportNumber = 0;
+            InputFirstName = String.Empty;
+            InputSecondName = String.Empty;
+            
         }
+
         public bool AddCitizenCanExec(object parameter)
         {
             return true;
+        }
+
+        private void SetQueue()
+        {            
+            CitizensQueue.Clear();
+            foreach (var item in medQueue.GetQueue())
+            {
+                CitizensQueue.Add(medQueue.SerializeToCitizenProvider(item));
+            }
         }
     }
 }

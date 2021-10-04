@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Task02.Model
 {
     using ModelInterface;
 
+    // имеется класс для доступа к источнику данных
+    // здесь это пользовательская коллекция
+    // класс унаследован от специального интерфейса для
+    // работы с ViewModel
     public class ProgramCore : IOfficeQueue
     {
         IPatientsQueue queue;
@@ -20,7 +20,7 @@ namespace Task02.Model
 
         public void AddCitizenAtQueue(object citizen)
         {            
-            queue.Add(citizen);
+            queue.Add(CreateNewCitizen((CitizenProvider)citizen));
         }
 
         public object GetByQueueNumber(int queueNumber)
@@ -81,6 +81,7 @@ namespace Task02.Model
             return ctz.QueueNumber;
         }
 
+        // не успел реализовать
         public bool NotEmpty()
         {
             throw new NotImplementedException();
@@ -91,7 +92,7 @@ namespace Task02.Model
             return queue.ServePatient();
         }
 
-        private CitizenProvider SerializeToCitizenProvider(object citizen)
+        public CitizenProvider SerializeToCitizenProvider(object citizen)
         {
             Citizen castedCitizen = (Citizen)citizen;
             CitizenProvider.Status status = (CitizenProvider.Status)Enum.Parse(typeof(CitizenProvider.Status), castedCitizen.GetType().Name.ToLower());

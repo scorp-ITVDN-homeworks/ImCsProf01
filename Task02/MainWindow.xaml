@@ -15,9 +15,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <DataGrid 
-            ItemsSource="{Binding CitizensQueue}"
-            />
+        <DataGrid ItemsSource="{Binding CitizensQueue}" SelectedItem="{Binding SelectedCitizen}" />
 
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Grid>
@@ -53,9 +51,7 @@
                             <Run Text="Number in queue: " />
                             <Run Text="{Binding SelectedQueueNumber}" />
                         </TextBlock>
-                        <Button
-                            Command="{Binding CmdServeCitizen}"
-                            Content="Serve citizen" />
+                        <Button Command="{Binding CmdServeCitizen}" Content="Serve citizen" />
                     </StackPanel>
                 </TabItem>
 
@@ -66,30 +62,25 @@
                         -->
                         <TextBlock>
                             <Run Text="First name: " />
-                            <TextBox 
+                            <TextBox
+                                Margin="5,0,0,0"
                                 HorizontalAlignment="Stretch"
                                 HorizontalContentAlignment="Center"
-                                Text="{Binding InputFirstName, Mode=TwoWay}" Margin="5,0,0,0"/>
+                                Text="{Binding InputFirstName, Mode=TwoWay}" />
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Last name: " />
-                            <TextBox Text="{Binding InputSecondName, Mode=TwoWay}"/>
+                            <TextBox Text="{Binding InputSecondName, Mode=TwoWay}" />
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Status: " />
-                            <ComboBox 
-                                SelectedItem="{Binding InputCitizenStatus}"
-                                ItemsSource="{Binding InputStatusBox, Mode=TwoWay}"/>
-                        </TextBlock>                        
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            >
+                            <ComboBox ItemsSource="{Binding InputStatusBox, Mode=TwoWay}" SelectedItem="{Binding InputCitizenStatus}" />
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Center">
                             <Run Text="Passport №: " />
-                            <TextBox Text="{Binding InputPassportNumber, Mode=TwoWay}"/>
-                        </TextBlock> 
-                        <Button 
-                            Command="{Binding CmdAddCitizen}"
-                            Content="Add citizen at queue" />
+                            <TextBox Text="{Binding InputPassportNumber, Mode=TwoWay}" />
+                        </TextBlock>
+                        <Button Command="{Binding CmdAddCitizen}" Content="Add citizen at queue" />
                     </StackPanel>
 
                 </TabItem>

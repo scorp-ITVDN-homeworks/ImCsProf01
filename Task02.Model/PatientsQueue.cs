@@ -91,12 +91,14 @@ namespace Task02.Model
 
         public int Add(object value)
         {
+            if (!(value is Citizen) || Contains(value)) return -1;
             if (value is Retiree)
             {
                 Insert(Count, value);
             }
             else
             {
+                
                 Array.Resize(ref peopleInQueue, Count + 1);
                 peopleInQueue[Count - 1] = value as Citizen;
             }

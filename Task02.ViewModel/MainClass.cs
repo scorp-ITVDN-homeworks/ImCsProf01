@@ -17,7 +17,19 @@ namespace Task02.ViewModel
         {
             this.medQueue = ctzQueue;
             SetStatusComboBox();
+            AddSomePerson();
+            SetQueue();
+        }
 
+        private void AddSomePerson()
+        {
+            CitizenProvider ctzOne = new CitizenProvider(999888, CitizenProvider.Status.student) { FirstName = "Paul", LastName = "Atreides" };
+            CitizenProvider ctzTwo = new CitizenProvider(888999, CitizenProvider.Status.worker) { FirstName = "Duncan", LastName = "Idaho" };
+            CitizenProvider ctzThree = new CitizenProvider(100500, CitizenProvider.Status.retiree) { FirstName = "Leto", LastName = "Atreides" };
+
+            medQueue.AddCitizenAtQueue(ctzOne);
+            medQueue.AddCitizenAtQueue(ctzTwo);
+            medQueue.AddCitizenAtQueue(ctzThree);
         }
 
         private CitizenProvider citizen;
@@ -110,6 +122,33 @@ namespace Task02.ViewModel
         #endregion
 
         #region VIEW CITIZEN INFO
+
+        private CitizenProvider selectedCititzen;
+        public CitizenProvider SelectedCitizen
+        {
+            get { return selectedCititzen; }
+            set
+            {
+                selectedCititzen = value;
+                OnPropertyChanged(nameof(SelectedCitizen));
+                if(selectedCititzen != null)
+                {
+                    SelectedFirstName = selectedCititzen.FirstName;
+                    SelectedLastName = selectedCititzen.LastName;
+                    SelectedPassportNumber = selectedCititzen.PassportNumber;
+                    SelectedQueueNumber = selectedCititzen.Queue;
+                    SelectedCitizenStatus = selectedCititzen.SocialRole.ToString();
+                }
+                else
+                {
+                    SelectedFirstName = "-";
+                    SelectedLastName = "-";
+                    SelectedPassportNumber = 0;
+                    SelectedQueueNumber = 0;
+                    SelectedCitizenStatus = "-";
+                }
+            }
+        }
 
         private string selectedFirstName = String.Empty;
         public string SelectedFirstName

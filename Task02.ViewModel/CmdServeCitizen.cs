@@ -1,4 +1,5 @@
-﻿using MVVMadds;
+﻿using ModelInterface;
+using MVVMadds;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,15 @@ namespace Task02.ViewModel
         }
         public void ServeCitizenExec(object parameter)
         {
+            CitizenProvider servingCitizen = medQueue.SerializeToCitizenProvider(medQueue.ServeCitizen());
 
+            if (SelectedCitizen != null && SelectedCitizen.PassportNumber == servingCitizen.PassportNumber)
+            {
+                SelectedCitizen = null;
+            }
+
+
+            SetQueue();
         }
         public bool ServeCitizenCanExec(object parameter)
         {

@@ -69,7 +69,5 @@ namespace Task02.Model
         {
 
         }
-    }
-
-    
+    }    
 }
