@@ -15,7 +15,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <ListView />
+        <DataGrid 
+            ItemsSource="{Binding CitizensQueue}"
+            />
 
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Grid>
@@ -24,33 +26,34 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-
-
-                <Button Grid.Column="1" Content="Add citizen at queue" />
-                <Button Grid.Column="2" Content="Empty" />
             </Grid>
 
             <TabControl>
                 <TabItem Header="View citizen info">
                     <StackPanel>
+                        <!--
+                        -->
                         <TextBlock>
                             <Run Text="First name: " />
-                            <Run Text="{Binding}" />
+                            <Run Text="{Binding SelectedFirstName}" />
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Last name: " />
-                            <Run Text="{Binding}" />
+                            <Run Text="{Binding SelectedLastName}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Passport №: " />
+                            <Run Text="{Binding SelectedPassportNumber}" />
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Status: " />
-                            <Run Text="{Binding}" />
+                            <Run Text="{Binding SelectedCitizenStatus}" />
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Number in queue: " />
-                            <Run Text="{Binding}" />
+                            <Run Text="{Binding SelectedQueueNumber}" />
                         </TextBlock>
                         <Button
-                            Grid.Column="0"
                             Command="{Binding CmdServeCitizen}"
                             Content="Serve citizen" />
                     </StackPanel>
@@ -59,22 +62,34 @@
                 <TabItem Header="Add citizen panel">
 
                     <StackPanel>
+                        <!--
+                        -->
                         <TextBlock>
                             <Run Text="First name: " />
-                            <TextBox />
+                            <TextBox 
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                Text="{Binding InputFirstName, Mode=TwoWay}" Margin="5,0,0,0"/>
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Last name: " />
-                            <Run Text="{Binding}" />
+                            <TextBox Text="{Binding InputSecondName, Mode=TwoWay}"/>
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Status: " />
-                            <Run Text="{Binding}" />
-                        </TextBlock>
-                        <TextBlock>
-                            <Run Text="Number in queue: " />
-                            <Run Text="{Binding}" />
-                        </TextBlock>
+                            <ComboBox 
+                                SelectedItem="{Binding InputCitizenStatus}"
+                                ItemsSource="{Binding InputStatusBox, Mode=TwoWay}"/>
+                        </TextBlock>                        
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            >
+                            <Run Text="Passport №: " />
+                            <TextBox Text="{Binding InputPassportNumber, Mode=TwoWay}"/>
+                        </TextBlock> 
+                        <Button 
+                            Command="{Binding CmdAddCitizen}"
+                            Content="Add citizen at queue" />
                     </StackPanel>
 
                 </TabItem>

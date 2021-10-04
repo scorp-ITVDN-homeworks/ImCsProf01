@@ -31,9 +31,9 @@ namespace Task02
 
         public MainWindow()
         {
-            InitializeComponent();
             core = new ProgramCore();
             vm = new CitizensQueueVM(core);
+            InitializeComponent();
             DataContext = vm;
         }
     }

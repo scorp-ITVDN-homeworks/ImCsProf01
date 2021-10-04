@@ -201,14 +201,19 @@ namespace Task02.Model
             ResetQueueNumbers();
         }
 
-        public void ServePatient()
+        public object ServePatient()
         {
-            if (Count > 0) RemoveAt(0);
+            Citizen firstPatient = null;
+            if (Count > 0)
+            {
+                firstPatient = peopleInQueue[0];
+                RemoveAt(0);
+            }
+            return firstPatient;
         }
 
         public int GetNumberInQueue(object value)
-        {
-            if (Contains(value))
+        {            
             return (value as Citizen).QueueNumber;
         }
 
@@ -244,7 +249,7 @@ namespace Task02.Model
         public void Clear();
 
         // специализированные методы коллекции
-        public void ServePatient();
+        public object ServePatient();
         public int  GetNumberInQueue(object value);
 
         public object ReturnFirst();

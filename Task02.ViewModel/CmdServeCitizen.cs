@@ -25,8 +25,7 @@ namespace Task02.ViewModel
         }
         public void ServeCitizenExec(object parameter)
         {
-            //parameter - это аргумент, передаваемый через CommandParameter
-            //MessageBox.Show(parameter.GetType().ToString());
+
         }
         public bool ServeCitizenCanExec(object parameter)
         {
