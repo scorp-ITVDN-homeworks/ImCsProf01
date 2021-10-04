@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ModelInterface\ModelInterface.csproj" />
     <ProjectReference Include="..\MvvmAdds\MvvmAdds.csproj" />
+	  
   </ItemGroup>
 
 </Project>

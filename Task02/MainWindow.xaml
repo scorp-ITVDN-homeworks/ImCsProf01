@@ -1,12 +1,87 @@
-﻿<Window x:Class="Task02.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Task02"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+﻿<Window
+    x:Class="Task02.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Task02"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <ListView />
+
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+
+                <Button Grid.Column="1" Content="Add citizen at queue" />
+                <Button Grid.Column="2" Content="Empty" />
+            </Grid>
+
+            <TabControl>
+                <TabItem Header="View citizen info">
+                    <StackPanel>
+                        <TextBlock>
+                            <Run Text="First name: " />
+                            <Run Text="{Binding}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Last name: " />
+                            <Run Text="{Binding}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Status: " />
+                            <Run Text="{Binding}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Number in queue: " />
+                            <Run Text="{Binding}" />
+                        </TextBlock>
+                        <Button
+                            Grid.Column="0"
+                            Command="{Binding CmdServeCitizen}"
+                            Content="Serve citizen" />
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Add citizen panel">
+
+                    <StackPanel>
+                        <TextBlock>
+                            <Run Text="First name: " />
+                            <TextBox />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Last name: " />
+                            <Run Text="{Binding}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Status: " />
+                            <Run Text="{Binding}" />
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Number in queue: " />
+                            <Run Text="{Binding}" />
+                        </TextBlock>
+                    </StackPanel>
+
+                </TabItem>
+
+            </TabControl>
+
+        </StackPanel>
 
     </Grid>
 </Window>

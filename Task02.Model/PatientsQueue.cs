@@ -208,7 +208,7 @@ namespace Task02.Model
 
         public int GetNumberInQueue(object value)
         {
-            if (Contains(value));
+            if (Contains(value))
             return (value as Citizen).QueueNumber;
         }
 

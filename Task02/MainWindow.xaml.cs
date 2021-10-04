@@ -13,16 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Task02
 {
+    using Model;
+    using ViewModel;
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        // 
+        private CitizensQueueVM vm;
+
+        //
+        private ProgramCore core;
+
         public MainWindow()
         {
             InitializeComponent();
+            core = new ProgramCore();
+            vm = new CitizensQueueVM(core);
+            DataContext = vm;
         }
     }
 }
