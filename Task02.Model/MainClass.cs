@@ -3,6 +3,10 @@ using System.Collections;
 
 namespace Task02.Model
 {
+    /* классы, представляющие горожан и их "роли",
+     * унаследованные от базового абстрактного Cititzen
+     */
+
     public abstract class Citizen
     {
         public Citizen(int passportNumber)

@@ -28,7 +28,7 @@ namespace Task02.ViewModel
         }
         public void AddCitizenExec(object parameter)
         {
-            MessageBox.Show("Something happens");
+            //MessageBox.Show("Something happens");
             CitizenProvider.Status status = (CitizenProvider.Status)Enum.Parse(typeof(CitizenProvider.Status), InputCitizenStatus);
             CitizenProvider citizen = new CitizenProvider(InputPassportNumber, status) { FirstName = InputFirstName, LastName = InputSecondName };
             medQueue.AddCitizenAtQueue(citizen);

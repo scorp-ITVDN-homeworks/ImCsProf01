@@ -2,6 +2,14 @@
 
 namespace ModelInterface
 {
+    /* здесь содержится интерфейс для взаимодействия 
+     * Model и ViewModel для второго задания
+     * 
+     * А также класс для передачи Citizen из Model во ViewModel
+     * - лучшего решения пока не нашёл
+     */
+
+
     public interface IOfficeQueue
     {
         public object[] GetQueue();

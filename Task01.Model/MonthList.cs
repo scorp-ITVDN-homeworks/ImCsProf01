@@ -131,7 +131,7 @@ namespace Task01.Model
     }
 
     /* интерфейс для передачи во viewmodel
-     * 
+     * в нём много лишнего, но избавляться от этого сейчас уже не стал
      * 
      */
     public interface IMonthCollection

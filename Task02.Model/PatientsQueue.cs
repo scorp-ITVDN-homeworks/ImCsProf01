@@ -121,7 +121,10 @@ namespace Task02.Model
             return false;
         }
 
-        // данный может нарушить очередь пенсионеров
+        /* данный метод может нарушить очередь пенсионеров
+         * для дз его реализация не особенно важна
+         * и в интерфейс IPatientsQueue он не входит
+         */
         public void CopyTo(Array array, int index)
         {            
             if (index >= Count || index < 0) throw new ArgumentOutOfRangeException();
@@ -131,7 +134,10 @@ namespace Task02.Model
             ResetQueueNumbers();
         }
 
-        // этот метод может нарушить очередь пенсионеров 
+        /* данный метод может нарушить очередь пенсионеров
+         * для дз его реализация не особенно важна
+         * и в интерфейс IPatientsQueue он не входит
+         */
         public void Extend(Array array, int index)
         {
             if (!(array is Citizen[])) throw new ArgumentException();
@@ -142,6 +148,8 @@ namespace Task02.Model
             ResetQueueNumbers();
         }
 
+        /* релизация интерфейса IEnumerable
+         */
         public IEnumerator GetEnumerator()
         {
             Reset();
@@ -203,6 +211,12 @@ namespace Task02.Model
             ResetQueueNumbers();
         }
 
+        #endregion
+
+        #region IPatientsQueue
+
+        /* реализация IPatientsQueue
+         */
         public object ServePatient()
         {
             Citizen firstPatient = null;
@@ -214,11 +228,15 @@ namespace Task02.Model
             return firstPatient;
         }
 
+        /* реализация IPatientsQueue
+         */
         public int GetNumberInQueue(object value)
         {            
             return (value as Citizen).QueueNumber;
         }
 
+        /* реализация IPatientsQueue
+         */
         public void ResetQueueNumbers()
         {
             int counter = 1;
@@ -228,11 +246,15 @@ namespace Task02.Model
             }
         }
 
+        /* реализация IPatientsQueue
+         */
         public object ReturnFirst()
         {
             return peopleInQueue[0];
         }
 
+        /* реализация IPatientsQueue
+         */
         public object ReturnLast()
         {
             return peopleInQueue[Count - 1];
@@ -241,6 +263,8 @@ namespace Task02.Model
         #endregion
     }
 
+    /* интерфейс согласно условию ДЗ
+     */
     public interface IPatientsQueue : IEnumerable, IEnumerator // нужно чтобы можно было пройтись foreach
     {
         object? this[int index] { get; set; }
@@ -248,6 +272,7 @@ namespace Task02.Model
         // дублирование сигнатур из других интерфейсов
         public int  Add(object value);
         public bool Contains(object value);
+        public int Count { get; }
         public void Clear();
 
         // специализированные методы коллекции

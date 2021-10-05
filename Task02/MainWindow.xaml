@@ -63,22 +63,22 @@
                         <TextBlock>
                             <Run Text="First name: " />
                             <TextBox
+                                Width="152"
                                 Margin="5,0,0,0"
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Center"
+                                HorizontalAlignment="Stretch"                                
                                 Text="{Binding InputFirstName, Mode=TwoWay}" />
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Last name: " />
-                            <TextBox Text="{Binding InputSecondName, Mode=TwoWay}" />
+                            <TextBox Width="158" Text="{Binding InputSecondName, Mode=TwoWay}" />
                         </TextBlock>
                         <TextBlock>
                             <Run Text="Status: " />
-                            <ComboBox ItemsSource="{Binding InputStatusBox, Mode=TwoWay}" SelectedItem="{Binding InputCitizenStatus}" />
+                            <ComboBox Width="180" ItemsSource="{Binding InputStatusBox, Mode=TwoWay}" SelectedItem="{Binding InputCitizenStatus}" />
                         </TextBlock>
                         <TextBlock VerticalAlignment="Center">
                             <Run Text="Passport №: " />
-                            <TextBox Text="{Binding InputPassportNumber, Mode=TwoWay}" />
+                            <TextBox Width="150" Text="{Binding InputPassportNumber, Mode=TwoWay}" />
                         </TextBlock>
                         <Button Command="{Binding CmdAddCitizen}" Content="Add citizen at queue" />
                     </StackPanel>

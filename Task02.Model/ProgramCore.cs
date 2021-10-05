@@ -5,10 +5,10 @@ namespace Task02.Model
 {
     using ModelInterface;
 
-    // имеется класс для доступа к источнику данных
-    // здесь это пользовательская коллекция
-    // класс унаследован от специального интерфейса для
-    // работы с ViewModel
+    /* имеется класс для доступа к источнику данных - здесь это пользовательская коллекция
+     * класс унаследован от специального интерфейса для
+     * работы с ViewModel
+     */
     public class ProgramCore : IOfficeQueue
     {
         IPatientsQueue queue;
@@ -81,17 +81,28 @@ namespace Task02.Model
             return ctz.QueueNumber;
         }
 
-        // не успел реализовать
+        // не успел реализовать да это и не нужно
         public bool NotEmpty()
         {
-            throw new NotImplementedException();
+            if (queue.Count == 0) return false;
+            return true;
         }
 
+        /* упаковка над методом по обслуживанию пациента
+         * что именно делает данный метод см. в классе коллекции
+         */
         public object ServeCitizen()
         {            
             return queue.ServePatient();
         }
 
+        /* перевод в Citizen в CitizenProvider - класс, представляющий Citizen во ViewModel
+         * Пока что я вижу, что во ViewModel нужен собственный класс
+         * для отображения Citizen, и я пока не знаю каким образом это сделать лучше
+         * чтобы в модели этот класс не светился. Возможно, следует сам класс Citizen и его свойства
+         * пометить специальным атрибутом,
+         * который будет читаться во viewModel
+         */
         public CitizenProvider SerializeToCitizenProvider(object citizen)
         {
             Citizen castedCitizen = (Citizen)citizen;
@@ -105,6 +116,9 @@ namespace Task02.Model
             return ctProv;
         }
 
+        /* создание нового экземпляра абстратного класса Citizen
+         * на основе экземпляра типа CititzenProvider
+         */
         public object CreateNewCitizen(CitizenProvider provider)
         {
             Citizen citizen = null;
